@@ -1,0 +1,3 @@
+[submodule "packages/payment-sdk"]
+	path = packages/payment-sdk
+	url = git@github.com:thanghd98/payment_admin.git
