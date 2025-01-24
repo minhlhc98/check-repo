@@ -16,7 +16,11 @@ export default function Login() {
   const [isLoading, setIsLoading] = useState(false);
   const { userProfile, setUserProfile, setIsAuthenticated, isAuthenticated } =
     useAdminCoreContext();
-  console.log('isAuthenticated', { setUserProfile, isAuthenticated, setIsAuthenticated })
+  console.log('isAuthenticated', {
+    setUserProfile,
+    isAuthenticated,
+    setIsAuthenticated,
+  });
   const { openWalletModal } = useWalletModal();
   // const nextRouter = useRouter();
   const { disconnect, signMessage, connected, isNotInstalled } = useWallet();
@@ -29,7 +33,7 @@ export default function Login() {
   };
 
   const getOnChainMessage = async () => {
-    const signedMessage = await signMessage(SIGN_MESS) as any
+    const signedMessage = (await signMessage(SIGN_MESS)) as any;
     const signedData = _get(signedMessage, 'data');
     if (!signedData) return null;
     localStorage.setItem(AUTH_TYPES.ON_CHAIN_SIGNATURE, signedData);
@@ -45,7 +49,7 @@ export default function Login() {
       AUTH_TYPES.BASE_JWT,
       _get(authData, ['data', 'token'], '')
     );
-    console.log('userProfile', userProfile)
+    console.log('userProfile', userProfile);
     await setUserProfile(userProfile);
     setIsAuthenticated(true);
   };
@@ -95,11 +99,11 @@ export default function Login() {
         /> */}
       </div>
       <div className="h-full w-full absolute">
-        <img
+        {/* <img
           alt="background admin"
           src={require('../../assets/images/bgadminline.svg')}
           className="object-cover"
-        />
+        /> */}
       </div>
       {/* content */}
       <div className="px-8 py-14 max-w-md space-y-8 w-full border-2 rounded-xl z-20">
@@ -111,13 +115,13 @@ export default function Login() {
             height={58}
             className="w-40 h-auto block mx-auto select-none"
           /> */}
-          <img
+          {/* <img
             alt="logo admin"
             src={require('../../assets/images/logoAdmin.svg')}
             width={195}
             height={58}
             className="w-40 h-auto block mx-auto select-none"
-          />
+          /> */}
         </div>
         <div>
           <Button
