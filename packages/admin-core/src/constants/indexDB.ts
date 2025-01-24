@@ -1,0 +1,2 @@
+export const INDEXED_DB_NAME = 'ADMIN_CORE';
+export const USER_PROFILE_RECORD = 'USER_PROFILE_RECORD'
